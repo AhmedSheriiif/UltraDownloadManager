@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/UltraDownloadManager.App/UltraDownloadManager.App.csproj" />
+    <Project Path="src/UltraDownloadManager.Core/UltraDownloadManager.Core.csproj" />
+    <Project Path="src/UltraDownloadManager.NativeHost/UltraDownloadManager.NativeHost.csproj" />
+  </Folder>
+</Solution>

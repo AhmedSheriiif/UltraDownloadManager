@@ -1,0 +1,8 @@
+bin/
+obj/
+.vs/
+*.user
+node_modules/
+tools/aria2/aria2c.exe
+tools/ytdlp/ffmpeg.exe
+tools/ytdlp/yt-dlp.exe

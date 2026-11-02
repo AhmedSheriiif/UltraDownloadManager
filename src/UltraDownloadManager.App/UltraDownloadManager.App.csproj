@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\UltraDownloadManager.Core\UltraDownloadManager.Core.csproj" />
+    <ProjectReference Include="..\UltraDownloadManager.NativeHost\UltraDownloadManager.NativeHost.csproj" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>UltraDownloadManager</AssemblyName>
+    <RootNamespace>UltraDownloadManager.App</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets\app.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\app.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\tools\aria2\aria2c.exe" Link="aria2\aria2c.exe" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\tools\aria2\aria2-LICENSE.txt" Link="aria2\aria2-LICENSE.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\tools\ytdlp\yt-dlp.exe" Link="ytdlp\yt-dlp.exe" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\tools\ytdlp\ffmpeg.exe" Link="ytdlp\ffmpeg.exe" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <!-- Bundle the native messaging host build output alongside the app so the browser extension can find it. -->
+  <Target Name="CopyNativeHostOutput" AfterTargets="Build">
+    <ItemGroup>
+      <NativeHostFiles Include="..\UltraDownloadManager.NativeHost\bin\$(Configuration)\net8.0\**\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(NativeHostFiles)" DestinationFolder="$(OutDir)nativehost\%(RecursiveDir)" SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>

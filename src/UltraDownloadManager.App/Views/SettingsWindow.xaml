@@ -1,0 +1,88 @@
+<Window x:Class="UltraDownloadManager.App.Views.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Settings" Height="620" Width="520"
+        Style="{StaticResource AppWindow}"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Default download folder" Foreground="{StaticResource Brush.TextSecondary}"/>
+        <Grid Grid.Row="1" Margin="0,6,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" x:Name="DirectoryTextBox"/>
+            <Button Grid.Column="1" Style="{StaticResource FlatButton}" Content="Browse…" Margin="8,0,0,0" Padding="14,6" Click="Browse_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="0,0,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                <TextBlock Text="Max concurrent downloads" Foreground="{StaticResource Brush.TextSecondary}"/>
+                <TextBox x:Name="MaxConcurrentTextBox" Margin="0,6,0,0"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="Connections per download" Foreground="{StaticResource Brush.TextSecondary}"/>
+                <TextBox x:Name="MaxConnectionsTextBox" Margin="0,6,0,0"/>
+            </StackPanel>
+        </Grid>
+
+        <TextBlock Grid.Row="3" Text="Global speed limit (KB/s, 0 = unlimited)"
+                   Foreground="{StaticResource Brush.TextSecondary}"/>
+        <TextBox Grid.Row="4" x:Name="SpeedLimitTextBox" Margin="0,6,0,16"/>
+
+        <CheckBox Grid.Row="5" x:Name="MinimizeToTrayCheckBox" Content="Minimize to system tray when closed"
+                   Margin="0,0,0,10"/>
+        <CheckBox Grid.Row="6" x:Name="StartWithWindowsCheckBox" Content="Start Ultra Download Manager with Windows"
+                   Margin="0,0,0,10"/>
+        <CheckBox Grid.Row="7" x:Name="AutoCategorizeCheckBox"
+                   Content="Sort downloads into Videos / Music / Documents / Archives / ... subfolders"
+                   Margin="0,0,0,10"/>
+        <CheckBox Grid.Row="8" x:Name="WarnOnDuplicateCheckBox" Content="Warn before re-downloading something already completed"
+                   Margin="0,0,0,10"/>
+        <CheckBox Grid.Row="9" x:Name="ShowNotificationsCheckBox" Content="Show a notification when a download finishes"
+                   Margin="0,0,0,16"/>
+
+        <CheckBox Grid.Row="10" x:Name="SchedulingEnabledCheckBox" Content="Only download during a scheduled time window"
+                   Margin="0,0,0,8" Checked="SchedulingEnabledCheckBox_Changed" Unchecked="SchedulingEnabledCheckBox_Changed"/>
+        <Grid Grid.Row="11" x:Name="ScheduleRow" Margin="24,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Allow downloads from" VerticalAlignment="Center" Margin="0,0,8,0"/>
+            <TextBox Grid.Column="1" x:Name="ScheduleStartTextBox"/>
+            <TextBlock Grid.Column="2" Text=":00 to" VerticalAlignment="Center" Margin="8,0,8,0"/>
+            <TextBox Grid.Column="3" x:Name="ScheduleEndTextBox"/>
+            <TextBlock Grid.Column="4" Text=":00 (24h, local time)" VerticalAlignment="Center" Margin="8,0,0,0"/>
+        </Grid>
+
+        <StackPanel Grid.Row="13" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button Style="{StaticResource FlatButton}" Content="Cancel" Width="90" Margin="0,0,10,0" Click="Cancel_Click"/>
+            <Button Content="Save" Style="{StaticResource AccentButton}" Width="90" Click="Save_Click" IsDefault="True"/>
+        </StackPanel>
+    </Grid>
+</Window>

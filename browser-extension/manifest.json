@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Ultra Download Manager",
+  "version": "1.0.0",
+  "description": "Send downloads from your browser straight to Ultra Download Manager.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1HVpStpMRHw1nWaoKXBeVQ43H9emNnD2STWRRF245uxwTo0G1/Zjh8wclLvNLbcoXDtCbGJnto6fSBNODvFVQwwj0MDLQTAqZ1Ys70/q29a/jvVnWAKLJ9IEPy0OuD6pi6FzU66i7rXIIFKK4iRCOlADGO3XQDCnsDzQZhzQaQhYfD4/a6wtIziY+37wvcsSj8LziJ//3Le1Tpf0yEQl/hTynFqNp99iSvdXayALEbflrtXwkpSrELjZIdHoiXmDqqjYooOj7URlOajfvzWtFpHrY/fLKt9lQvlQDbz6fNhzsn/EKoWGGtMjWn21WbDjE3I7S6nVZiezQ3ZJXd53eQIDAQAB",
+  "permissions": ["contextMenus", "nativeMessaging", "cookies", "notifications", "downloads", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
